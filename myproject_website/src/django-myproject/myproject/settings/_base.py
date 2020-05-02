@@ -145,6 +145,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 timestamp = get_git_changeset_timestamp(BASE_DIR)
+with open(os.path.join(BASE_DIR, 'myproject', 'settings', 'last-update.txt'), 'r') as f:
+    timestamp = f.readline().strip()
 STATIC_URL = f'/static/{timestamp}/'
 # STATIC_URL = '/static/'
 
